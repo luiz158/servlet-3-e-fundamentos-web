@@ -3,6 +3,7 @@ package br.com.alura.gerenciador.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -30,10 +31,12 @@ public class LogoutServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession session = request.getSession();
-		
+		HttpSession session = request.getSession();		
 		session.removeAttribute("usuario.logado");
-		response.sendRedirect("logout.html");
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/paginas/logout.html");
+		dispatcher.forward(request, response);
+		
 		
 	}
 
