@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.alura.gerenciador.Empresa;
+import br.com.alura.gerenciador.dao.EmpresaDAO;
 
 
 @WebServlet(urlPatterns="/novaEmpresa")
@@ -28,16 +29,12 @@ public class NovaEmpresa extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nome = request.getParameter("nome");
-		System.out.println(nome);
 		
-		PrintWriter writer = response.getWriter();
 		
-		writer.println("<html>");
-		writer.println("<body>");
-		writer.println("<h1>Resultado da busca: " + nome +" <h1/>");
-		writer.println("</body>");
-		writer.println("</html>");
-
+		Empresa empresa = new Empresa(nome);
+		new EmpresaDAO().adiciona(empresa);
+		request.setAttribute("empresa", empresa);
+		request.getRequestDispatcher("/WEB-INF/paginas/novaEmpresa.jsp").forward(request, response);;
 	}
 
 }
