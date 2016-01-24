@@ -1,6 +1,7 @@
 *.class
 gerenciador/build
 gerenciador-final/build
+gerenciador/.settings/*
 # Package Files #
 *.jar
 *.war

@@ -40,8 +40,9 @@ public class LoginServlet extends HttpServlet {
 			writer.print("<html><body>Usuario não encontrado</body></html>");
 		} else {
 			HttpSession session = request.getSession();
-			session.setAttribute("usuario.logado", usuario);
-			writer.print("<html><body>Usuario logado</body></html>");
+
+			session.setAttribute("usuarioLogado", usuario);
+			request.getRequestDispatcher("index.jsp").forward(request,response );
 		}
 		
 	}

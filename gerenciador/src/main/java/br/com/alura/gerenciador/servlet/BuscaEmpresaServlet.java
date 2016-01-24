@@ -1,7 +1,6 @@
 package br.com.alura.gerenciador.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Collection;
 
 import javax.servlet.ServletException;
@@ -37,29 +36,10 @@ public class BuscaEmpresaServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String nomeEmpresa = request.getParameter("empresa");
-		Collection<Empresa> empresas = new EmpresaDAO().buscaPorSimilaridade(nomeEmpresa);
-
-		
-		request.setAttribute("empresas", empresas);
-		
+		Collection<Empresa> empresas = new EmpresaDAO().buscaPorSimilaridade(nomeEmpresa);		
+		request.setAttribute("empresas", empresas);		
 		request.getRequestDispatcher("/WEB-INF/paginas/buscaEmpresa.jsp").forward(request,response );
 		
-//		PrintWriter writer = response.getWriter();
-//		writer.println("<html>");
-//		writer.println("<body>");
-//		writer.println("Resultado da busca: <br/>");
-//		writer.println("<ul>");
-//		for (Empresa empresa : empresas) {
-//			writer.println("<li>" + empresa.getId() + ": " + empresa.getNome() + "</li>");
-//		}
-//		writer.println("</ul>");
-//		writer.println("</body>");
-//		writer.println("</html>");
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
-			IOException {
-
 	}
 
 }

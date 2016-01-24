@@ -32,7 +32,7 @@ public class LogoutServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession();		
-		session.removeAttribute("usuario.logado");
+		session.removeAttribute("usuarioLogado");
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/paginas/logout.html");
 		dispatcher.forward(request, response);

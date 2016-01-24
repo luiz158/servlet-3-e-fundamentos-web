@@ -9,7 +9,7 @@ public class Cookies {
 	public Cookie getUsuario (HttpServletRequest request){
 		Cookie[] cookies = request.getCookies();
 		for (Cookie cookie : cookies) {
-			if (cookie.getName().equals("usuario.logado")){
+			if (cookie.getName().equals("usuarioLogado")){
 				return cookie;
 			}
 		}
