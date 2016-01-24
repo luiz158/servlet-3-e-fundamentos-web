@@ -5,3 +5,4 @@ gerenciador-final/build
 *.jar
 *.war
 *.ear
+gerenciador/.classpath
