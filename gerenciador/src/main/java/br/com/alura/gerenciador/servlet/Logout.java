@@ -18,10 +18,10 @@ import br.com.alura.gerenciador.Cookies;
  * Servlet implementation class LogoutServlet
  */
 @WebServlet("/logout")
-public class LogoutServlet extends HttpServlet {
+public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public LogoutServlet() {
+    public Logout() {
         super();
     }
 
