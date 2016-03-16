@@ -1,9 +1,8 @@
-package br.com.alura.gerenciador.dao;
+package java.br.com.alura.gerenciador.dao;
 
+import java.br.com.alura.gerenciador.Usuario;
 import java.util.HashMap;
 import java.util.Map;
-
-import br.com.alura.gerenciador.Usuario;
 
 public class UsuarioDAO {
 

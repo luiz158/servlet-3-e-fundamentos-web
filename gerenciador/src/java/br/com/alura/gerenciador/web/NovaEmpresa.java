@@ -1,4 +1,4 @@
-package br.com.alura.gerenciador.web;
+package java.br.com.alura.gerenciador.web;
 
 import java.io.IOException;
 
@@ -13,6 +13,8 @@ public class NovaEmpresa extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		req.getParameter("nome");
 		
 	}
 }

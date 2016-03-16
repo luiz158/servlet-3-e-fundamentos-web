@@ -1,12 +1,11 @@
-package br.com.alura.gerenciador.dao;
+package java.br.com.alura.gerenciador.dao;
 
+import java.br.com.alura.gerenciador.Empresa;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import br.com.alura.gerenciador.Empresa;
 
 public class EmpresaDAO {
 

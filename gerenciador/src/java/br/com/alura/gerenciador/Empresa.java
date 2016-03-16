@@ -1,4 +1,4 @@
-package br.com.alura.gerenciador;
+package java.br.com.alura.gerenciador;
 
 public class Empresa {
 
