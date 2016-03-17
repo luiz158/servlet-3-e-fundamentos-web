@@ -1,4 +1,4 @@
-package java.br.com.alura.gerenciador;
+package br.com.alura.gerenciador;
 
 public class Usuario {
 
