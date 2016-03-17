@@ -1,6 +1,7 @@
 package br.com.alura.gerenciador.web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,15 +9,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns="/cadastro")
-public class NovaEmpresa extends HttpServlet{
-	
+import br.com.alura.gerenciador.Empresa;
+import br.com.alura.gerenciador.dao.EmpresaDAO;
+
+@WebServlet(urlPatterns = "/cadastro")
+public class NovaEmpresa extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		PrintWriter writer = resp.getWriter();
 		
-		req.getParameter("nome");
+		String nome = req.getParameter("nome");
+		Empresa empresa = new Empresa(nome);
+		new EmpresaDAO().adiciona(empresa);
+		String html = "<html><body>"
+				+ " Empresa: "+ nome 
+				+"<br>Adicionada com Sucesso!!"
+				+ "<form action=\"busca\" method=\"GET\">"
+				+ "<input type=\"submit\" value=\"Listar\">"
+				+ "</form>"				
+				+ "</body></html>";
+		writer.println(html);
+		
 		
 	}
 }

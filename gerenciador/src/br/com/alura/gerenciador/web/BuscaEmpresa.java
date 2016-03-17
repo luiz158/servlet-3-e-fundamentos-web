@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sun.corba.se.impl.javax.rmi.CORBA.Util;
+
 import br.com.alura.gerenciador.Empresa;
 import br.com.alura.gerenciador.dao.EmpresaDAO;
+import br.com.alura.gerenciador.utils.Utils;
 
 @WebServlet(urlPatterns="/busca")
 public class BuscaEmpresa extends HttpServlet{
@@ -29,11 +32,9 @@ public class BuscaEmpresa extends HttpServlet{
 		}
 		html += "</ul>";
 		
-		writer.println("<html>");
-        writer.println("<body>");
+		writer.println(Utils.INIT);
         writer.println("Resultado da busca:<br/>");
         writer.println(html);
-        writer.println("</body>");
-        writer.println("</html>");
+        writer.println(Utils.END);
 	}
 }	
