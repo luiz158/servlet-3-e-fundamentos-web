@@ -19,20 +19,9 @@ public class NovaEmpresa extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		PrintWriter writer = resp.getWriter();
-		
 		String nome = req.getParameter("nome");
 		Empresa empresa = new Empresa(nome);
 		new EmpresaDAO().adiciona(empresa);
-		String html = "<html><body>"
-				+ " Empresa: "+ nome 
-				+"<br>Adicionada com Sucesso!!"
-				+ "<form action=\"busca\" method=\"GET\">"
-				+ "<input type=\"submit\" value=\"Listar\">"
-				+ "</form>"				
-				+ "</body></html>";
-		writer.println(html);
-		
-		
+		resp.sendRedirect("/gerenciador/busca");
 	}
 }

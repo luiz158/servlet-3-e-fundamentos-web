@@ -1,7 +1,6 @@
 package br.com.alura.gerenciador.web;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 
 public class Cookies {
 
