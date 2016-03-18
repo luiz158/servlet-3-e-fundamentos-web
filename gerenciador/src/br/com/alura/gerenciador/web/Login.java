@@ -28,6 +28,7 @@ public class Login extends HttpServlet {
 			writer.println("<h3>Usuario Logado com sucesso!!</h3>");
 			writer.println(Utils.END);
 			Cookie cookie = new Cookie("usuario.logado", usuario.getEmail());
+			cookie.setMaxAge(60*10);
 			resp.addCookie(cookie);
 		} else {
 			writer.println(Utils.INIT);
