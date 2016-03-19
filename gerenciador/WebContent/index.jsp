@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <body>
 	<p>Bem vindo ao nosso gerenciador de empresas!</p>
@@ -6,16 +6,18 @@
 		<p>Logado como: ${usuarioLogado.email}</p>
 	</c:if>
 	<br>
-	<form action="cadastro" method="POST">
-		Nome da Empresa: <input type="text" name="nome"> 
-		<input type="submit" value="Adicionar">
+	<form action="do?command=NovaEmpresa" method="post">
+		Nome: <input type="text" name="nome" /><br /> <input type="submit"
+			value="Enviar" />
 	</form>
-	
+
 	<form action="login" method="GET">
 		<input type="submit" value="Area de Login">
 	</form>
-	
-	<form action="logout" method="POST">
+
+	<form action="do?command=Logout" method="GET">
+		<!--  <form action="do" method="POST">
+		<input type="hidden" name="command" value="Logout"> -->
 		<input type="submit" value="Deslogar">
 	</form>
 </body>
