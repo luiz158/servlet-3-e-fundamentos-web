@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collection;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,19 +21,10 @@ public class BuscaEmpresa extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		PrintWriter writer = resp.getWriter();
-		
 		String filtro = req.getParameter("filtro");
 		Collection<Empresa> empresas = new EmpresaDAO().buscaPorSimilaridade(filtro);
-		String html = "<ul>\n";
-		for(Empresa empresa : empresas) {
-			html += "<li>" + empresa.getId() + ":" + empresa.getNome() + "</li>\n";
-		}
-		html += "</ul>";
-		
-		writer.println(Utils.INIT);
-        writer.println("Resultado da busca:<br/>");
-        writer.println(html);
-        writer.println(Utils.END);
+		req.setAttribute("empresas", empresas);
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/paginas/listarEmpresas.jsp");
+		dispatcher.forward(req, resp);
 	}
 }	

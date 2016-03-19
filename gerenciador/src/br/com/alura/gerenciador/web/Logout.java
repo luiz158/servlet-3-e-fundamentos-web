@@ -19,7 +19,7 @@ public class Logout extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		if(session.getAttribute("usuario.logado") != null){
-			session.removeAttribute("usuario.logado");
+			session.removeAttribute("usuarioLogado");
 		}
 //		Desta forma o mostro paginas que fica no web-inf que o cliente não possui acesso
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/paginas/logout.html");
