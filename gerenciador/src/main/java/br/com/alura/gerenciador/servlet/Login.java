@@ -27,9 +27,9 @@ public class Login implements Tarefa {
 		
 		Usuario usuario = new UsuarioDAO().buscaPorEmailESenha(email, senha);
 		
-		PrintWriter writer = response.getWriter();
 		
 		if (usuario == null) {
+			PrintWriter writer = response.getWriter();
 			writer.print("<html><body>Usuario não encontrado</body></html>");
 		} else {
 			HttpSession session = request.getSession();

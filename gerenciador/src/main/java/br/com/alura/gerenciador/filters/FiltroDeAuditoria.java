@@ -37,7 +37,7 @@ public class FiltroDeAuditoria implements Filter {
 		
 
 		if (usuario == null) {
-			System.out.println("Usu√°rio n√£o est√° logado");
+			System.out.println("Usu·rio n„o est· logado");
 
 		}else{
 			System.out.println("usuario logado: " + usuario.getEmail());

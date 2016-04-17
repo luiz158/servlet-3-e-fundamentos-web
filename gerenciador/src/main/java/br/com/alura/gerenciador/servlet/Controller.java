@@ -9,33 +9,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/fazTudo")
-public class FazTudo extends HttpServlet {
+@WebServlet("/executa")
+public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public FazTudo() {
+	public Controller() {
 		super();
 	}
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Primeiro "+ response.isCommitted());
 		String nomeDaTarefa = request.getParameter("tarefa");
+		
+		System.out.println("Nome da Tarefa: " + nomeDaTarefa);
 		
 		if (nomeDaTarefa == null){
 			throw new IllegalArgumentException("tarefa invalida");			
 		}
 		
 		String nomeDaClasse ="br.com.alura.gerenciador.servlet."+nomeDaTarefa;
+		System.out.println(nomeDaClasse);
 		
 		try {
 	
 			Class<?> tipo = Class.forName(nomeDaClasse);
 			Tarefa tarefa = (Tarefa) tipo.newInstance();
 			
-			System.out.println("Segundo "+response.isCommitted());
 			String pagina= tarefa.executa(request, response);
-			System.out.println("Terceiro "+response.isCommitted());
 			RequestDispatcher dispatcher = request.getRequestDispatcher(pagina);
 			dispatcher.forward(request, response);
 			

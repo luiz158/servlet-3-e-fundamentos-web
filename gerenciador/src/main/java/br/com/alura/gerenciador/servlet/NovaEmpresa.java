@@ -1,40 +1,26 @@
 package br.com.alura.gerenciador.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.alura.gerenciador.Empresa;
 import br.com.alura.gerenciador.dao.EmpresaDAO;
 
 
-@WebServlet(urlPatterns="/novaEmpresa")
-public class NovaEmpresa extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    public NovaEmpresa() {
-        super();
+public class NovaEmpresa implements Tarefa {
 
-    }
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nome = request.getParameter("nome");
-		
-		
 		Empresa empresa = new Empresa(nome);
 		new EmpresaDAO().adiciona(empresa);
-		request.setAttribute("empresa", empresa);
-		request.getRequestDispatcher("/WEB-INF/paginas/novaEmpresa.jsp").forward(request, response);;
+	
+		HttpSession session = request.getSession();
+		
+		session.setAttribute("empresa", empresa);
+		return "/WEB-INF/paginas/novaEmpresa.jsp";
 	}
 
 }
