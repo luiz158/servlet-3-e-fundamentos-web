@@ -12,6 +12,3 @@ gerenciador/.classpath
 gerenciador-final/.settings/org.eclipse.jdt.core.prefs
 *.prefs
 gerenciador-final/.settings/org.eclipse.wst.common.project.facet.core.xml
-*.classpath
-*.prefs
-gerenciador-final/.settings/org.eclipse.wst.common.project.facet.core.xml
